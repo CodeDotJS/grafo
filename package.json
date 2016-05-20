@@ -1,0 +1,45 @@
+{
+  "name": "gravator",
+  "version": "1.0.0",
+  "description": "Get user information of a Gravatar user",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codedotjs/gravator.git"
+  },
+  "author": "Rishi Giri <rushforlinux@gmail.com> (rishigiri.com)",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "gravatar",
+    "profile",
+    "info",
+    "information",
+    "website",
+    "get",
+    "contacts",
+    "social",
+    "scrape"
+  ],
+  "dependencies": {
+    "cheerio": "^0.19.0",
+    "got": "^5.0.0",
+    "pinkie-promise": "^2.0.0"
+  },
+  "devDependencies": {
+    "ava": "*",
+    "xo": "*"
+  },
+  "bugs": {
+    "url": "https://github.com/codedotjs/gravator/issues"
+  },
+  "homepage": "https://github.com/codedotjs/gravator#readme",
+  "main": "index.js"
+}
