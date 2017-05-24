@@ -1,5 +1,5 @@
 <h1 align="center">
-<img src="media/gravator.png" alt="GRAVATOR" width="400">
+<img src="https://raw.githubusercontent.com/CodeDotJS/gravator/master/media/gravator.png" alt="GRAVATOR" width="400">
 <br>
 <img src="https://travis-ci.org/CodeDotJS/gravator.svg?branch=master">
 <img src="https://img.shields.io/badge/code_style-XO-5ed9c7.svg">
