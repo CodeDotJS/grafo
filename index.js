@@ -1,47 +1,27 @@
-#!/usr/bin/env node
-
 'use strict';
 
-var got = require('got');
+const got = require('got');
 
-var cheerio = require('cheerio');
-
-var Promise = require('pinkie-promise');
-
-module.exports = function (username) {
+module.exports = (username, opts) => {
 	if (typeof username !== 'string') {
-		return Promise.reject(new Error('username required'));
+		throw new TypeError(`Expected a string, got ${typeof username}`);
 	}
 
-	var url = 'http://en.gravatar.com/' + username;
+	if (typeof opts !== 'string') {
+		throw new TypeError(`Expected a string, got ${typeof opts}`);
+	}
 
-	return got(url).then(function (res) {
-		var $ = cheerio.load(res.body);
+	const url = `https://en.gravatar.com/${username}.json`;
 
+	return got(url, {json: true}).then(res => {
+		const val = res.body;
 		return {
-			username: $('.fn').text() || null,
-
-			location: $('.location').text() || null,
-
-			biography: $('#bio').text().trim() || null,
-
-			wordpress: $('a.accounts_wordpress').attr('href') || null,
-
-			twitter: $('a.accounts_twitter').attr('href') || null,
-
-			facebook: $('a.accounts_facebook').attr('href') || null,
-
-			flickr: $('a.accounts_flickr').attr('href') || null,
-
-			googlePlus: $('a.accounts_google').attr('href') || null,
-
-			linkedIn: $('a.accounts_linkedin').attr('href') || null,
-
-			youtube: $('a.accounts_youtube').attr('href') || null,
-
-			blogger: $('a.accounts_blogger').attr('href') || null,
-
-			tumblr: $('a.accounts_tumblr').attr('href') || null
+			opts: val.entry[0][opts]
 		};
+	}).catch(err => {
+		if (err) {
+			err.message = `${username} is not a gravatar user`;
+		}
+		return err.message;
 	});
 };
