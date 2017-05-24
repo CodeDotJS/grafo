@@ -1,6 +1,6 @@
 {
   "name": "gravator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An unofficial API for Gravatar.com mostly for scrapping user data",
   "license": "MIT",
   "repository": {
