@@ -1,15 +1,13 @@
 <h1 align="center">
 <img src="media/gravator.png" alt="GRAVATOR" width="400">
-
-</h1>
-
-<h5 align="center">Get user information of a Gravatar User</h5>
-
-<h1 align="center">
+<br>
 <img src="https://travis-ci.org/CodeDotJS/gravator.svg?branch=master">
+<img src="https://img.shields.io/badge/code_style-XO-5ed9c7.svg">
 </h1>
 
-## Install 
+<p align="center"><b>An unofficial API for Gravatar.com mostly for scrapping user data.</b></p>
+
+## Install
 
 ```
 $ npm install --save gravator
@@ -17,42 +15,82 @@ $ npm install --save gravator
 
 ## Usage
 
+- `username` of a gravatar user is always __`foo`__`@example.com`
 ```js
 'use strict';
 
-const gravator = require('rushforlinux');
+const gravator = require('gravator');
 
-gravator('rushforlinux').then(user => {
-	console.log(user);
-	/*
-	{	username   :  'Rishi Giri (DotJS)',
-		location   :  'Gorakhpur',
-		biography  :  'JavaScript, Python and FOSS Enthusiast. Open Source Addict.',
-		wordpress  :   null,
-		twitter    :  'http://twitter.com/Rishi_Giri_',
-		facebook   :  'https://www.facebook.com/rishi.giri.90',
-		flickr     :   null,
-		googlePlus :  'http://profiles.google.com/106157567815478859311',
-		linkedIn   :  'https://www.linkedin.com/in/rishidotjs',
-		youtube    :   null,
-		blogger    :  'http://www.blogger.com/profile/g106157567815478859311',
-		tumblr     :  'http://geekyrush.tumblr.com/' }
-  	*/
+gravator('username', 'options').then(res => {
+	console.log(res);
+	// {opts: 'data'}
+});
+
+gravator('foo', 'hash').then(res => {
+	console.log(res);
+	// {opts: 'foo'}
+})
+```
+
+## API
+
+### `gravator(username, options)`
+
+#### __`username`__
+
+Type: `string`
+
+#### __`options`__
+
+Type: `string`
+
+Options:
+
+- `id`
+
+__`Example `__
+
+```js
+gravator('matt', 'id').then(res => {
+	console.log(res);
+	// // {opts: '5'}
 });
 ```
 
-## Related 
+- `hash`
 
-- [gravator-cli](https://github.com/CodeDotJS/gravator-cli) : CLI Tool for Gravator.
+- `requestHash`
 
-- [twifo](https://github.com/CodeDotJS/whatiz-cli) : Get user information of a twitter user.
+- `profileUrl`
 
-- [packages-by](https://github.com/CodeDotJS/packages-by) : Total packages published by a npm user.
+- `preferredUsername`
 
-- [packstat](https://github.com/CodeDotJS/packstat) : Displays metrics about npm modules.
+- `thumbnailUrl`
 
-- [curver](https://github.com/CodeDotJS/curver) : Easily fetch the latest version of node module available on npm.
+- `photos`
+
+- `name`
+
+- `ims`
+
+- `displayName`
+
+- `aboutMe`
+
+- `currentLocation`
+
+- `emails`
+
+- `accounts`
+
+- `urls`
+
+## Related
+
+- __[`gravator-cli`](https://github.com/CodeDotJS/gravator-cli)__ `: CLI Tool for Gravator.`
+
+- __[`twifo`](https://github.com/CodeDotJS/whatiz-cli)__ `: Get user information of a twitter user.`
 
 ## License
 
-MIT &copy; [Rishi Giri](http://rishigiri.com/)
+MIT &copy; [Rishi Giri](http://rishigiri.com)
